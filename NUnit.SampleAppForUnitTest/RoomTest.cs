@@ -48,8 +48,8 @@ namespace NUnit.RoomTest
         [TestCase(false, false)]
         public void RoomBrightnessTest(Boolean isLightBright, Boolean roomBrightOrNot)
         {
-            // 1 回目は isPowerBlight に true が渡ってくる > すなわち 電灯を明るくした(スタブした) ので部屋は明るいはず(期待結果)
-            // 2 回目は isPowerBlight に false が渡ってくる > すなわち 電灯を暗くした(スタブした) ので部屋が暗いはず(期待結果)
+            // 1 回目は isLightBright に true が渡ってくる > すなわち 電灯を明るくした(スタブした) ので部屋は明るいはず(期待結果)
+            // 2 回目は isLightBright に false が渡ってくる > すなわち 電灯を暗くした(スタブした) ので部屋が暗いはず(期待結果)
             this.light.Power.Returns(isLightBright);
             IRoom room = new Room(this.light);
             Assert.AreEqual(roomBrightOrNot, room.IsBrightRoom()); // パラメーターの true/false(期待結果) と room オブジェクトの true/false(実際結果) を比較する 
